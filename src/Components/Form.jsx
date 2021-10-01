@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 
 import axios from 'axios';
 import { saveAs } from 'file-saver'
+import './Styles/Form.css'
+
+
 
 class Form extends Component {
     state = {
@@ -20,7 +23,8 @@ class Form extends Component {
     
       handleChange = ({ target: { value, name }}) => this.setState({ [name]: value })
     
-      createAndDownloadPdf = () => {
+      createAndDownloadPdf = (e) => {
+          e.preventDefault();
         axios.post('/create-pdf', this.state)
           .then(() => axios.get('fetch-pdf', { responseType: 'blob' }))
           .then((res) => {
@@ -32,66 +36,86 @@ class Form extends Component {
     
       render() {
         return (
-            
-          <div className="App">
-            <label for="">Denominación Social Empresa 1:</label>
+
+          <div className="container">
+            <label for=""> Denominación Social Empresa 1:</label>
            <input type="text"
-             placeholder='Denominación social Parte principal'
-             name='dsActor' onChange={this.handleChange}/>
+             placeholder='Escribe la Denominación Social de la Parte principal'
+             name='dsActor'
+             autoComplete='name'
+             required
+             onChange={this.handleChange}/>
 
            <label for="">Nombre completo del Representante Legal:</label>
            <input type="text" 
            placeholder='Representante legal' 
+           autoComplete='name'
+           data-message='algo'
            name='rpLegalActor' onChange={this.handleChange}/>
 
            <label >Parte 1:</label>
              <input type="text"
-              placeholder='Parte 1'
+              placeholder='Escribe cómo te referirás a la Denominación Social 1'
+              required
                name='parteActor' onChange={this.handleChange}/>
 
            <label for="">Domicilio de la Denominación Social de la Empresa 1:</label>
              <input type="text"
-              placeholder='Domicilio'
+              placeholder='Domicilio Completo'
+              required
                name='domicilioActor' onChange={this.handleChange}/>
 
             <label for="">Dirección de E-mail: </label>
              <input type="email" 
              placeholder='E-mail'
+             autoComplete='email'
+             required
               name='emailActor' onChange={this.handleChange} />
      
             <label for="">Denominación Social de la Contraparte:</label>
              <input type="text"
-              placeholder='Nombre Contraparte' 
+              placeholder='Escribe la denominación social de la Contraparte' 
+              required
               name='dsResistente'onChange={this.handleChange}/>
 
             <label for="">Nombre Completo del Representante Legal de la Contraparte:</label>
              <input type="text" 
-             placeholder='Representante legal Contraparte' 
+             placeholder='Escribe el nombre del Representante legal de la Contraparte' 
+             autoComplete='name'
+             required
              name='rpLegalResistente' onChange={this.handleChange}/>
              
             <label htmlFor="">Parte 2:</label>
              <input type="text"
-              placeholder='Parte 2'
+              placeholder='Escribe cómo te referirás a la Denominación Social 2'
+              required
               name='parteResistente' onChange={this.handleChange}/>
 
             <label htmlFor="">Domicilio de la Denominación Social de la Empresa 2:</label>
              <input type="text" 
              placeholder='Domicilio'
+             required
             name='domicilioResistente' onChange={this.handleChange}/>
 
             <label for="">Dirección de E-mail: </label> 
             <input type="email" 
-            placeholder='E-mail'
+            placeholder='E-mail de la contraparte'
+            autoComplete='email'
+            required
              name='emailResistente' onChange={this.handleChange} />
      
             <label htmlFor="">Servicios a protegerse dentro de este NDA:</label>
-             <input type="text"
-              placeholder='Servicios'
+            
+             <textarea list='servicios'
+              placeholder='Escribe los servicios que quieras proteger e.j.: Asesoría Comercial '
               name='Servicios' 
+              required
+              spellCheck='true'
               onChange={this.handleChange} />
+              
             
             
-            <button onClick={this.createAndDownloadPdf}>Download PDF</button>
+            <button onClick={this.createAndDownloadPdf}>Descargar PDF</button>
           </div>
         );
       }
