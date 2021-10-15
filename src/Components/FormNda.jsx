@@ -6,7 +6,7 @@ import './Styles/Form.css'
 
 const Url = 'https://react-express-contrato.herokuapp.com/'
 
-class Form extends Component {
+class FormNda extends Component {
     state = {
         dsActor:'',
         rpLegalActor:'',
@@ -25,8 +25,8 @@ class Form extends Component {
     
       createAndDownloadPdf = (e) => {
           e.preventDefault();
-        axios.post(`${Url}create-pdf`, this.state)
-          .then(() => axios.get(`${Url}fetch-pdf`, { responseType: 'blob' }))
+        axios.post(`/create-pdf/Nda`, this.state)
+          .then(() => axios.get(`/fetch-pdf`, { responseType: 'blob' }))
           .then((res) => {
             const pdfBlob = new Blob([res.data], { type: 'application/pdf' });
     
@@ -121,4 +121,4 @@ class Form extends Component {
       }
 }
 
-export default Form;
+export default FormNda;
