@@ -25,8 +25,8 @@ class FormNda extends Component {
     
       createAndDownloadPdf = (e) => {
           e.preventDefault();
-        axios.post(`/create-pdf/Nda`, this.state)
-          .then(() => axios.get(`/fetch-pdf`, { responseType: 'blob' }))
+        axios.post(`/pdf/create-pdf/Nda`, this.state)
+          .then(() => axios.get(`/pdf/fetch-pdf`, { responseType: 'blob' }))
           .then((res) => {
             const pdfBlob = new Blob([res.data], { type: 'application/pdf' });
     
