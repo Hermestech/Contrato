@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+
+.container{
+    display: grid;
+    min-height: 100vh;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    justify-items: center;
+    margin-left: 4%;
+    margin-top: 0%;
+}
+
+.card {
+  position: relative;
+  min-width: 320px;
+  height: 440px;
+  box-shadow: 
+  inset 5px 5px 5px rgb(0 0 0 / 20%),
+  inset -5px -5px 15px rgb(255 255 255 / 24%),
+  5px 5px 15px rgb(0 0 0 / 25%), -5px -5px 15px rgb(255 255 255 / 34%);
+  border-radius: 15px;
+  margin: 30px;
+  transition: 0.5s;
+  animation: 2s card 0.5s ease-in-out;
+}
+@keyframes card {
+  0%{
+    transform: translateX(1200px);
+  }
+  100%{
+    transform: translateX(0px);
+  }
+}
+
+.container .card:nth-child(1) .box .content a {
+    background: #2196f3;
+  }
+
+.box {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    background: #2a2b2f;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: 0.5s;
+  }
+  .box:before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.03);
+  }
+  .content {
+    
+    text-align: center;
+  }
+  .content h2 {
+    position: absolute;
+    top: 30px;
+    right: 2px;
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    
+  }
+  .content h4 {
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  .content p {
+    font-size: 1rem;
+    font-weight: 300;
+    color: #ffffff73;
+    z-index: 1;
+    transition: 0.5s;
+    margin: 5%;
+    margin-top: 35%;
+  }
+  
+
+
+  @media(max-width: 700px){
+    .container{
+      grid-template-columns: repeat(2, 1fr);
+    } 
+  }
+  @media (max-width: 400px) {
+    .container{
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
