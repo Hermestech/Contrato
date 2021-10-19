@@ -1,10 +1,11 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './Styles/ContractCard.css'
 
 function ContractCard({contract}){
     console.log(contract.image)
     return(
-        <>
+        <Link to={`/Form/${contract.form_name}`}>
         <article className='card'>
          <div className='box'>
             <div className='content'>
@@ -15,7 +16,7 @@ function ContractCard({contract}){
             </div>
          </div>
         </article>
-    </>
+    </Link>
     )
 }
 

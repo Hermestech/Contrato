@@ -36,8 +36,8 @@ class FormNda extends Component {
     
       render() {
         return (
-
-          <div className="container">
+          
+          <div className="Form__Container">
             <label for=""> Denominación Social Empresa 1:</label>
            <input type="text"
              placeholder='Escribe la Denominación Social de la Parte principal'

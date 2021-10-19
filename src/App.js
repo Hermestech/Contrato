@@ -1,12 +1,10 @@
 import React  from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
-// import FormNda from './Components/FormNda';
-import FormSpPmPf from './Components/FormSpPmPf';
 
+import Form from './pages/Form';
 import Home from "./pages/Home";
+import Error404 from './Components/Error404';
 
-
-import './App.css';
 
 
 const App = () => {
@@ -14,7 +12,8 @@ const App = () => {
     <BrowserRouter>
       <Switch>
         <Route exact path='/home' component={Home}/>
-        <Route exact path='/form' component={FormSpPmPf}/>
+        <Route exact path='/Form/:name' component={Form}/>
+        <Route path='*' component={Error404} />
       </Switch>
     </BrowserRouter> 
   )

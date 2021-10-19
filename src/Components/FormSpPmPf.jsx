@@ -34,7 +34,7 @@ class FormSpPmPf extends Component{
 
     render(){
         return (
-            <div className='container'>
+            <div className='Form__Container'>
 
                 <label htmlFor="">Denominación Social de la empresa:</label>
                
