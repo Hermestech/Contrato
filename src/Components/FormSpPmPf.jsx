@@ -28,7 +28,7 @@ class FormSpPmPf extends Component{
           .then((res) => {
             const pdfBlob = new Blob([res.data], { type: 'application/pdf' });
     
-            saveAs(pdfBlob, 'newPdf.pdf');
+            saveAs(pdfBlob, 'Servicios-Profesionales.pdf');
           })
       }
 
@@ -46,6 +46,7 @@ class FormSpPmPf extends Component{
                   onChange={this.handleChange}
                 />
 
+                <label htmlFor="">Nombre del representante legal de la empresa:</label>
                 <input type="text"
                   placeholder='Nombre del Representante legal de la empresa.'
                   name='repLegalPersonaMoral'
@@ -54,42 +55,47 @@ class FormSpPmPf extends Component{
                   onChange={this.handleChange}
                 />
 
+                <label htmlFor="">Domicilio de la empresa:</label>
                 <input type="text"
-                  placeholder="Domicilio de la persona Moral: Avenida Siempre Viva 742"
+                  placeholder="Avenida Siempre Viva 742"
                   name='domicilioPersonaMoral'
                   autoComplete='name'
                   required
                   onChange={this.handleChange}
                 />
-
-                <input type="text"
-                  placeholder="E-mail de la empresa"
+    
+                <label htmlFor="">Correo electrónico de la empresa:</label>
+                <input type="email"
+                  placeholder="empresa@mail.com"
                   name='emailPersonaMoral'
-                  autoComplete='name'
+                  autoComplete='email'
                   required
                   onChange={this.handleChange}
                 />
 
+                <label htmlFor="">Nombre del prestador:</label>
                 <input type="text"
-                  placeholder="Nombre de la persona Física: 'Juan Pérez' " 
+                  placeholder="Enrique Segoviano" 
                   name='nombrePrestador'
                   autoComplete='name'
                   required
                   onChange={this.handleChange} 
                 />
 
+                <label htmlFor="">Domicilio del prestador:</label>
                 <input type="text"
-                  placeholder="Domicilio de la persona Física: Avenida Siempre Viva 742"
+                  placeholder="Avenida Siempre Viva 742"
                   name='domicilioPrestador'
                   autoComplete='name'
                   required
                   onChange={this.handleChange}
                 />
 
+                <label htmlFor="">Correo electrónico del prestador:</label>
                 <input type="text"
                   placeholder='E-mail de la persona física'
                   name='emailPrestador'
-                  autoComplete='name'
+                  autoComplete='email'
                   required
                   onChange={this.handleChange}
                 />
@@ -103,16 +109,17 @@ class FormSpPmPf extends Component{
              spellCheck='true'
              onChange={this.handleChange} />
 
-             <input type="text"
-               placeholder='Costo total del servicio'
+            <label htmlFor="">Contraprestación del servicio:</label>
+             <input type="number"
+               placeholder='$1200'
                name='contraprestacion'
-               autoComplete='name'
                required
                onChange={this.handleChange}
              />
 
+            <label htmlFor="">Plazo de duración:</label>
              <input type="text"
-               placeholder='plazo que durará el contrato'
+               placeholder='Del 20 de Marzo al 12 de Diciembre del 2021'
                name='plazo'
                autoComplete='name'
                required
