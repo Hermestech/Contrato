@@ -4,6 +4,8 @@ import axios from 'axios';
 import { saveAs } from 'file-saver'
 import './Styles/Form.css'
 
+import { CREATE_PDF, FETCH_PDF } from '../constants';
+
 class FormLaboralPfPm extends Component{
     state = {
         dsPersonaMoral:'',
@@ -34,8 +36,8 @@ class FormLaboralPfPm extends Component{
     
       createAndDownloadPdf = (e) => {
           e.preventDefault();
-        axios.post(`/pdf/create-pdf/IndTrabajo`, this.state)
-          .then(() => axios.get(`/pdf/fetch-pdf`, { responseType: 'blob' }))
+        axios.post(`${CREATE_PDF}IndTrabajo`, this.state)
+          .then(() => axios.get(FETCH_PDF, { responseType: 'blob' }))
           .then((res) => {
             const pdfBlob = new Blob([res.data], { type: 'application/pdf' });
     

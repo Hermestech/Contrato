@@ -4,7 +4,7 @@ import axios from 'axios';
 import { saveAs } from 'file-saver'
 import './Styles/Form.css'
 
-const Url = 'https://react-express-contrato.herokuapp.com/'
+import { CREATE_PDF, FETCH_PDF } from '../constants';
 
 class FormNda extends Component {
     state = {
@@ -25,8 +25,8 @@ class FormNda extends Component {
     
       createAndDownloadPdf = (e) => {
           e.preventDefault();
-        axios.post(`/pdf/create-pdf/Nda`, this.state)
-          .then(() => axios.get(`/pdf/fetch-pdf`, { responseType: 'blob' }))
+        axios.post(`${CREATE_PDF}Nda`, this.state)
+          .then(() => axios.get(FETCH_PDF, { responseType: 'blob' }))
           .then((res) => {
             const pdfBlob = new Blob([res.data], { type: 'application/pdf' });
     

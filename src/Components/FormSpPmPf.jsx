@@ -4,6 +4,8 @@ import axios from 'axios';
 import { saveAs } from 'file-saver'
 import './Styles/Form.css'
 
+import { CREATE_PDF, FETCH_PDF } from '../constants';
+
 class FormSpPmPf extends Component{
     state = {
         personaMoralDs: '',
@@ -23,8 +25,8 @@ class FormSpPmPf extends Component{
     
       createAndDownloadPdf = (e) => {
           e.preventDefault();
-        axios.post(`/pdf/create-pdf/SpPmPf`, this.state)
-          .then(() => axios.get(`/pdf/fetch-pdf`, { responseType: 'blob' }))
+        axios.post(`${CREATE_PDF}SpPmPf`, this.state)
+          .then(() => axios.get(FETCH_PDF, { responseType: 'blob' }))
           .then((res) => {
             const pdfBlob = new Blob([res.data], { type: 'application/pdf' });
     

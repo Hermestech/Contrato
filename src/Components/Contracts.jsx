@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import ContractList from './ContractList';
-const url = 'http://localhost:5000/contracts'
-
+import { CONTRACTS_ENDPOINT } from '../constants';
 
 
 const Contracts = () => {
@@ -11,7 +10,7 @@ const Contracts = () => {
     const [errorMsg, setErrorMsg] = useState('');
 
     useEffect(() => {
-        fetch(url)
+        fetch(CONTRACTS_ENDPOINT)
         .then(response => response.json())
         .then(data => setContracts(data))
     }, [setContracts])
