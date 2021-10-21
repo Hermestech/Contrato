@@ -43,7 +43,6 @@ class FormSpPmPf extends Component{
                 <input type='text'
                   placeholder='Patito S.A.P.I. De C.V.'
                   name='personaMoralDs'
-                  autoComplete='name'
                   required
                   onChange={this.handleChange}
                 />
@@ -52,7 +51,6 @@ class FormSpPmPf extends Component{
                 <input type="text"
                   placeholder='Nombre del Representante legal de la empresa.'
                   name='repLegalPersonaMoral'
-                  autoComplete='name'
                   required
                   onChange={this.handleChange}
                 />
@@ -61,7 +59,6 @@ class FormSpPmPf extends Component{
                 <input type="text"
                   placeholder="Avenida Siempre Viva 742"
                   name='domicilioPersonaMoral'
-                  autoComplete='name'
                   required
                   onChange={this.handleChange}
                 />
@@ -79,7 +76,6 @@ class FormSpPmPf extends Component{
                 <input type="text"
                   placeholder="Enrique Segoviano" 
                   name='nombrePrestador'
-                  autoComplete='name'
                   required
                   onChange={this.handleChange} 
                 />
@@ -88,7 +84,6 @@ class FormSpPmPf extends Component{
                 <input type="text"
                   placeholder="Avenida Siempre Viva 742"
                   name='domicilioPrestador'
-                  autoComplete='name'
                   required
                   onChange={this.handleChange}
                 />
